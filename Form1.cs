@@ -16,5 +16,29 @@ namespace assignment9_AndreiKazakov
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dictionary<char, int> counts = new Dictionary<char, int>();
+
+            char result = ' ';
+            int count = 0;
+
+            foreach (char c in textBox1.Text)
+            {
+                counts[c] = counts.ContainsKey(c) ? (counts[c] + 1) : 1;
+
+                if (counts[c] >= count)
+                {
+                    result = c;
+                    count = counts[c];
+                }
+            }
+
+            MessageBox.Show(
+                $"The most repeated character is '{result}' ({count} repetitions)",
+                "Result"
+            );
+        }
     }
 }
